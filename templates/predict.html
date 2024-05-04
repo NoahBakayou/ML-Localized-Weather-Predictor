@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <h1 class="prediction-title">Weather Forecast Accuracy Review</h1>
+
+    <img src="static/prediction_plot.png" alt="Prediction Plot" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+
+    <div class="container">
+        <div class="background">
+            <div class="Circle1"></div>
+            <div class="Circle2"></div>
+            <div class="Circle3"></div>
+            <div class="content">
+                <h1 class="Condition"><i class="material-icons sun">wb_sunny</i> Sunny</h1>
+                <h1 class="Temp">{{ prediction }}<span id="F">&#8457;</span></h1>
+                <h1 class="Time">{{ tomorrow_date }}</h1>
+                <h1 class="Location"><i class="material-icons locationIcon">place</i> San Diego, CA</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ensure this link is below all your content for a clean layout -->
+    <div class="return-link">
+        <a href="{{ url_for('home') }}">Return to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Weather Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_home.css') }}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var fileInput = document.querySelector('.file-input');
+            var dropArea = document.querySelector('.file-upload');
+            var fileNameDisplay = document.querySelector('.card-subtitle');
+
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    fileNameDisplay.textContent = `File selected: ${this.files[0].name}`;
+                } else {
+                    fileNameDisplay.textContent = 'Drag and drop your file here, or click to select a file';
+                }
+            });
+
+            dropArea.addEventListener('click', function() {
+                fileInput.click(); // Triggers the file input when any part of the drop area is clicked
+            });
+
+            dropArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                dropArea.classList.add('hover');
+            });
+
+            dropArea.addEventListener('dragleave', function(e) {
+                dropArea.classList.remove('hover');
+            });
+
+            dropArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                dropArea.classList.remove('hover');
+                fileInput.files = e.dataTransfer.files;
+                fileNameDisplay.textContent = `File selected: ${e.dataTransfer.files[0].name}`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">Upload your CSV file here</div>
+                <div class="card-subtitle">Maximum file size is 1GB</div>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="file-upload">
+                        <input class="file-input" type="file" name="file" required hidden>
+                        <img src="{{ url_for('static', filename='upload_icon.png') }}" alt="Upload Icon" class="icon">
+                        <div class="card-subtitle">Drag and drop your file here, or click to select a file</div>
+                    </div>
+                    <div class="submit-button-container" style="text-align: center; margin-top: 20px;">
+                        <input type="submit" value="Upload File" class="upload-button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

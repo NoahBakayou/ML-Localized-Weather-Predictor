@@ -1,0 +1,85 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap'); */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Quicksand";
+}
+
+body {
+    background-color: #f3f7fb;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.card {
+    background-color: #FFF;
+    width: 500px;
+    border-radius: .5rem;
+    box-shadow: 0px 5px 20px rgba(49, 104, 146, .25);
+
+    .card-body {
+        padding: 3.5rem 1.25rem;    
+
+        .card-title {
+            color: #324155;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: .25rem;
+        }
+
+        .card-subtitle {
+            color: #777;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
+
+.file-upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem 1.5rem;
+    margin-top: 2rem;
+    border: 3px dashed #324155;
+    border-radius: .5rem;
+    transition: background-color .25s ease-out;
+
+    &:hover {
+        background-color: #dbedff;
+    }
+
+    .file-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+.icon {
+    width: 73px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+    .icon {
+        width: 50px;
+    }
+}
+/* 
+<a href="https://www.flaticon.com/free-icons/file-upload" title="file upload icons">File upload icons created by Freepik - Flaticon</a> */
